@@ -349,20 +349,23 @@
         </div>
     </div>
     
-    <div id="calculatorView" class="hidden min-h-screen bg-gray-50 pt-28 pb-0 flex flex-col transition-opacity duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-4">
-            <button onclick="showQuotePage()" class="bg-white border border-gray-200 text-gray-600 hover:text-sbiBlue hover:border-sbiBlue px-5 py-2.5 rounded-full font-medium flex items-center gap-2 transition-all shadow-sm w-max">
-                <i class="fas fa-arrow-left"></i> Back to Product Selection
-            </button>
+    <div id="calculatorView" class="hidden h-screen pt-20 flex flex-col bg-gray-50 transition-opacity duration-300 overflow-hidden">
+        <div class="w-full bg-white border-b border-gray-200 shadow-sm z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+                <button onclick="showQuotePage()" class="text-gray-600 hover:text-sbiBlue font-medium flex items-center gap-2 transition-colors">
+                    <i class="fas fa-arrow-left"></i> Back to Product Selection
+                </button>
+            </div>
         </div>
-        <div class="w-full flex-grow relative flex flex-col">
+        
+        <div class="w-full flex-grow relative">
             <div id="calcLoader" class="absolute inset-0 flex justify-center items-center bg-gray-50 z-0">
                 <div class="text-center">
                     <i class="fas fa-spinner fa-spin text-4xl text-sbiBlue mb-3"></i>
                     <p class="text-gray-500 font-medium animate-pulse">Loading Application...</p>
                 </div>
             </div>
-            <iframe id="calcFrame" src="" class="relative z-10 w-full flex-grow min-h-[calc(100vh-140px)] border-none bg-transparent" onload="document.getElementById('calcLoader').classList.add('hidden')" title="Calculator App"></iframe>
+            <iframe id="calcFrame" src="" class="absolute inset-0 w-full h-full border-none bg-transparent" onload="document.getElementById('calcLoader').classList.add('hidden')" title="Calculator App"></iframe>
         </div>
     </div>
     
@@ -609,6 +612,9 @@
             
             // Clear iframe src so it doesn't stay running in background
             document.getElementById('calcFrame').src = '';
+            
+            // Allow main window to scroll again if it was locked
+            document.body.classList.remove('overflow-hidden');
         }
 
         function showHomeView() { 
@@ -640,10 +646,14 @@
         // ==========================================
         function openCalculator(url) {
             hideAllViews();
+            
+            // Lock the main window scroll so only the iframe scrolls
+            document.body.classList.add('overflow-hidden'); 
+            
             document.getElementById('calcLoader').classList.remove('hidden'); 
             document.getElementById('calculatorView').classList.remove('hidden'); 
             document.getElementById('calcFrame').src = url; 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
 
         // ==========================================
