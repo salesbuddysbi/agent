@@ -120,7 +120,7 @@
                         <p class="text-gray-500 text-sm">Select Alpha or Super Health to generate instant premium estimations.</p>
                     </div>
                     
-                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-sbiPurple bg-white" onclick="openCalculator('emi_calculator.html')" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-sbiPurple bg-white" onclick="openCalculator('emi_calculator.html', 'home')" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-14 h-14 bg-purple-50 text-sbiPurple rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-calculator"></i>
                         </div>
@@ -128,7 +128,7 @@
                         <p class="text-gray-500 text-sm">Calculate monthly premium installments easily using the dedicated tool.</p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-green-500 bg-white" onclick="openCalculator('cashless_network.html')" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-green-500 bg-white" onclick="openCalculator('cashless_network.html', 'home')" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-14 h-14 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-hospital-user"></i>
                         </div>
@@ -324,7 +324,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div onclick="openCalculator('super_health.html')" class="cursor-pointer bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiBlue flex flex-col items-center text-center group transform hover:-translate-y-2">
+                <div onclick="openCalculator('super_health.html', 'quote')" class="cursor-pointer bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiBlue flex flex-col items-center text-center group transform hover:-translate-y-2">
                     <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sbiBlue transition-colors">
                         <i class="fas fa-shield-alt text-5xl text-sbiBlue group-hover:text-white transition-colors"></i>
                     </div>
@@ -335,7 +335,7 @@
                     </span>
                 </div>
 
-                <div onclick="openCalculator('health_alpha.html')" class="cursor-pointer bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiPurple flex flex-col items-center text-center group transform hover:-translate-y-2">
+                <div onclick="openCalculator('health_alpha.html', 'quote')" class="cursor-pointer bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiPurple flex flex-col items-center text-center group transform hover:-translate-y-2">
                     <div class="w-24 h-24 bg-purple-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sbiPurple transition-colors">
                         <i class="fas fa-heartbeat text-5xl text-sbiPurple group-hover:text-white transition-colors"></i>
                     </div>
@@ -352,8 +352,8 @@
     <div id="calculatorView" class="hidden h-screen pt-20 flex flex-col bg-gray-50 transition-opacity duration-300 overflow-hidden">
         <div class="w-full bg-white border-b border-gray-200 shadow-sm z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-                <button onclick="showQuotePage()" class="text-gray-600 hover:text-sbiBlue font-medium flex items-center gap-2 transition-colors">
-                    <i class="fas fa-arrow-left"></i> Back to Product Selection
+                <button onclick="handleCalcBack()" class="text-gray-600 hover:text-sbiBlue font-medium flex items-center gap-2 transition-colors">
+                    <i class="fas fa-arrow-left"></i> <span id="calcBackBtnText">Back</span>
                 </button>
             </div>
         </div>
@@ -642,10 +642,25 @@
         }
 
         // ==========================================
-        // APP FRAME LOADER (Now Seamless)
+        // APP FRAME LOADER (Now Seamless & Dynamic)
         // ==========================================
-        function openCalculator(url) {
+        
+        // CHANGED: Added global variable to track where the user came from
+        let currentCalcBackTarget = 'home';
+
+        function openCalculator(url, backTarget = 'home') {
             hideAllViews();
+            
+            // Store target for the back button
+            currentCalcBackTarget = backTarget;
+            
+            // Update the back button text based on where we came from
+            const btnText = document.getElementById('calcBackBtnText');
+            if (backTarget === 'quote') {
+                btnText.innerText = 'Back to Product Selection';
+            } else {
+                btnText.innerText = 'Back to Dashboard';
+            }
             
             // Lock the main window scroll so only the iframe scrolls
             document.body.classList.add('overflow-hidden'); 
@@ -654,6 +669,15 @@
             document.getElementById('calculatorView').classList.remove('hidden'); 
             document.getElementById('calcFrame').src = url; 
             window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        // CHANGED: New function to handle the back action dynamically
+        function handleCalcBack() {
+            if (currentCalcBackTarget === 'quote') {
+                showQuotePage();
+            } else {
+                showHomeView();
+            }
         }
 
         // ==========================================
