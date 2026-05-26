@@ -349,20 +349,20 @@
         </div>
     </div>
     
-    <div id="calculatorView" class="hidden min-h-screen bg-gray-50 pt-32 pb-10 transition-opacity duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col h-[85vh]">
-            <button onclick="showQuotePage()" class="mb-6 bg-white border border-gray-200 text-gray-600 hover:text-sbiBlue hover:border-sbiBlue px-5 py-2.5 rounded-full font-medium flex items-center gap-2 transition-all shadow-sm w-max">
+    <div id="calculatorView" class="hidden min-h-screen bg-gray-50 pt-28 pb-0 flex flex-col transition-opacity duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-4">
+            <button onclick="showQuotePage()" class="bg-white border border-gray-200 text-gray-600 hover:text-sbiBlue hover:border-sbiBlue px-5 py-2.5 rounded-full font-medium flex items-center gap-2 transition-all shadow-sm w-max">
                 <i class="fas fa-arrow-left"></i> Back to Product Selection
             </button>
-            <div class="bg-white rounded-3xl shadow-lg border border-gray-200 flex-grow relative overflow-hidden">
-                <div id="calcLoader" class="absolute inset-0 flex justify-center items-center bg-gray-50 z-0">
-                    <div class="text-center">
-                        <i class="fas fa-spinner fa-spin text-4xl text-sbiBlue mb-3"></i>
-                        <p class="text-gray-500 font-medium animate-pulse">Loading Application...</p>
-                    </div>
+        </div>
+        <div class="w-full flex-grow relative flex flex-col">
+            <div id="calcLoader" class="absolute inset-0 flex justify-center items-center bg-gray-50 z-0">
+                <div class="text-center">
+                    <i class="fas fa-spinner fa-spin text-4xl text-sbiBlue mb-3"></i>
+                    <p class="text-gray-500 font-medium animate-pulse">Loading Application...</p>
                 </div>
-                <iframe id="calcFrame" src="" class="relative z-10 w-full h-full border-none" onload="document.getElementById('calcLoader').classList.add('hidden')" title="Calculator App"></iframe>
             </div>
+            <iframe id="calcFrame" src="" class="relative z-10 w-full flex-grow min-h-[calc(100vh-140px)] border-none bg-transparent" onload="document.getElementById('calcLoader').classList.add('hidden')" title="Calculator App"></iframe>
         </div>
     </div>
     
@@ -602,7 +602,7 @@
         function hideAllViews() {
             document.getElementById('homeView').classList.add('hidden');
             document.getElementById('quotePageView').classList.add('hidden');
-            document.getElementById('calculatorView').classList.add('hidden'); // New Calculator Container
+            document.getElementById('calculatorView').classList.add('hidden'); 
             document.getElementById('downloadsPageView').classList.add('hidden');
             document.getElementById('downloadsListView').classList.add('hidden');
             document.getElementById('trainingPageView').classList.add('hidden');
@@ -636,13 +636,13 @@
         }
 
         // ==========================================
-        // NEW: APP FRAME LOADER 
+        // APP FRAME LOADER (Now Seamless)
         // ==========================================
         function openCalculator(url) {
             hideAllViews();
-            document.getElementById('calcLoader').classList.remove('hidden'); // Reset loader animation
-            document.getElementById('calculatorView').classList.remove('hidden'); // Show container
-            document.getElementById('calcFrame').src = url; // Inject external HTML file
+            document.getElementById('calcLoader').classList.remove('hidden'); 
+            document.getElementById('calculatorView').classList.remove('hidden'); 
+            document.getElementById('calcFrame').src = url; 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
