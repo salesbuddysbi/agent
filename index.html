@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -44,7 +43,7 @@
 </head>
 <body class="bg-sbiLight text-sbiDark font-sans antialiased overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="showHomeView()">
@@ -69,7 +68,7 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
                 <a href="#about" onclick="showHomeView(); document.getElementById('mobile-menu').classList.add('hidden');" class="block px-3 py-2 text-gray-700 font-medium">About</a>
                 <a href="#sales-buddy" onclick="showHomeView(); document.getElementById('mobile-menu').classList.add('hidden');" class="block px-3 py-2 text-gray-700 font-medium">Sales Buddy</a>
                 <a href="#" onclick="showDownloadsPage(); document.getElementById('mobile-menu').classList.add('hidden');" class="block px-3 py-2 text-gray-700 font-medium">Downloads</a>
@@ -85,35 +84,22 @@
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-sbiBlue/10 blur-3xl"></div>
             <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-sbiPurple/10 blur-3xl"></div>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="w-full lg:w-5/12 flex justify-center" data-aos="fade-right">
-                        <div class="relative w-64 h-64 md:w-80 md:h-80">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-sbiPurple to-sbiBlue rounded-full animate-pulse blur-md opacity-50"></div>
-                            <img src="https://ui-avatars.com/api/?name=Agent+Name&background=801C7D&color=fff&size=512" id="agentPhoto" alt="Agent Profile" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-2xl z-10">
-                            <div class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg z-20 text-sbiBlue">
-                                <i class="fas fa-shield-heart text-2xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full lg:w-7/12 text-center lg:text-left" data-aos="fade-left">
-                        <span class="text-sbiBlue font-semibold tracking-wider uppercase text-sm mb-2 block">SBI General Insurance Advisor</span>
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4" id="agentNameDisplay">
-                            Protecting Your Health,<br>
-                            <span class="gradient-text">Securing Your Future.</span>
-                        </h1>
-                        <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto lg:mx-0">
-                            Hello! I am your dedicated health insurance partner. With SBI General's philosophy of <strong>'Suraksha aur Bharosa Dono'</strong>, I am here to help you navigate, select, and manage the best health coverage for you and your family.
-                        </p>
-                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                            <button onclick="showQuotePage()" class="bg-sbiPurple hover:bg-[#6a1568] text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2">
-                                <i class="fas fa-bolt"></i> Quick Quote
-                            </button>
-                            <button onclick="showTrainingPage()" class="bg-white text-sbiBlue border-2 border-sbiBlue hover:bg-sbiBlue hover:text-white px-8 py-3 rounded-full font-medium transition-all shadow-md flex items-center gap-2">
-                                <i class="fas fa-chalkboard-teacher"></i> Training Deck
-                            </button>
-                        </div>
-                    </div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-up">
+                <span class="text-sbiBlue font-semibold tracking-wider uppercase text-sm mb-2 block">SBI General Insurance Advisor</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4" id="agentNameDisplay">
+                    Protecting Your Health,<br>
+                    <span class="gradient-text">Securing Your Future.</span>
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+                    Hello! I am your dedicated health insurance partner. With SBI General's philosophy of <strong>'Suraksha aur Bharosa Dono'</strong>, I am here to help you navigate, select, and manage the best health coverage for you and your family.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="showQuotePage()" class="bg-sbiPurple hover:bg-[#6a1568] text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2">
+                        <i class="fas fa-bolt"></i> Quick Quote
+                    </button>
+                    <button onclick="showTrainingPage()" class="bg-white text-sbiBlue border-2 border-sbiBlue hover:bg-sbiBlue hover:text-white px-8 py-3 rounded-full font-medium transition-all shadow-md flex items-center gap-2">
+                        <i class="fas fa-chalkboard-teacher"></i> Training Deck
+                    </button>
                 </div>
             </div>
         </section>
@@ -134,7 +120,7 @@
                         <p class="text-gray-500 text-sm">Select Alpha or Super Health to generate instant premium estimations.</p>
                     </div>
                     
-                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-sbiPurple bg-white" onclick="window.location.href='emi_calculator.html'" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-sbiPurple bg-white" onclick="openCalculator('emi_calculator.html')" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-14 h-14 bg-purple-50 text-sbiPurple rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-calculator"></i>
                         </div>
@@ -142,7 +128,7 @@
                         <p class="text-gray-500 text-sm">Calculate monthly premium installments easily using the dedicated tool.</p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-green-500 bg-white" onclick="window.location.href='cashless_network.html'" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group cursor-pointer border-t-4 border-t-green-500 bg-white" onclick="openCalculator('cashless_network.html')" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-14 h-14 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-hospital-user"></i>
                         </div>
@@ -336,8 +322,9 @@
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 text-sbiDark">Select a Product</h2>
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto">Choose a plan to navigate to its dedicated premium calculator.</p>
             </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <a href="super_health.html" class="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiBlue flex flex-col items-center text-center group transform hover:-translate-y-2">
+                <div onclick="openCalculator('super_health.html')" class="cursor-pointer bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiBlue flex flex-col items-center text-center group transform hover:-translate-y-2">
                     <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sbiBlue transition-colors">
                         <i class="fas fa-shield-alt text-5xl text-sbiBlue group-hover:text-white transition-colors"></i>
                     </div>
@@ -346,9 +333,9 @@
                     <span class="w-full bg-blue-50 text-sbiBlue font-bold py-4 rounded-xl group-hover:bg-sbiBlue group-hover:text-white transition-colors flex justify-center items-center gap-2 text-lg">
                         Calculate Premium <i class="fas fa-arrow-right"></i>
                     </span>
-                </a>
+                </div>
 
-                <a href="health_alpha.html" class="bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiPurple flex flex-col items-center text-center group transform hover:-translate-y-2">
+                <div onclick="openCalculator('health_alpha.html')" class="cursor-pointer bg-white rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all border-t-8 border-t-sbiPurple flex flex-col items-center text-center group transform hover:-translate-y-2">
                     <div class="w-24 h-24 bg-purple-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-sbiPurple transition-colors">
                         <i class="fas fa-heartbeat text-5xl text-sbiPurple group-hover:text-white transition-colors"></i>
                     </div>
@@ -357,7 +344,24 @@
                     <span class="w-full bg-purple-50 text-sbiPurple font-bold py-4 rounded-xl group-hover:bg-sbiPurple group-hover:text-white transition-colors flex justify-center items-center gap-2 text-lg">
                         Calculate Premium <i class="fas fa-arrow-right"></i>
                     </span>
-                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="calculatorView" class="hidden min-h-screen bg-gray-50 pt-32 pb-10 transition-opacity duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col h-[85vh]">
+            <button onclick="showQuotePage()" class="mb-6 bg-white border border-gray-200 text-gray-600 hover:text-sbiBlue hover:border-sbiBlue px-5 py-2.5 rounded-full font-medium flex items-center gap-2 transition-all shadow-sm w-max">
+                <i class="fas fa-arrow-left"></i> Back to Product Selection
+            </button>
+            <div class="bg-white rounded-3xl shadow-lg border border-gray-200 flex-grow relative overflow-hidden">
+                <div id="calcLoader" class="absolute inset-0 flex justify-center items-center bg-gray-50 z-0">
+                    <div class="text-center">
+                        <i class="fas fa-spinner fa-spin text-4xl text-sbiBlue mb-3"></i>
+                        <p class="text-gray-500 font-medium animate-pulse">Loading Application...</p>
+                    </div>
+                </div>
+                <iframe id="calcFrame" src="" class="relative z-10 w-full h-full border-none" onload="document.getElementById('calcLoader').classList.add('hidden')" title="Calculator App"></iframe>
             </div>
         </div>
     </div>
@@ -415,7 +419,7 @@
     </div>
 
     <div id="trainingPageView" class="hidden min-h-screen bg-gray-50 pt-32 pb-20 transition-opacity duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <button onclick="showHomeView()" class="mb-8 bg-white border border-gray-200 text-gray-600 hover:text-sbiBlue hover:border-sbiBlue px-5 py-2.5 rounded-full font-medium flex items-center gap-2 transition-all shadow-sm">
                 <i class="fas fa-arrow-left"></i> Back to Dashboard
             </button>
@@ -425,7 +429,7 @@
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto">Select a product to open its training presentation.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div onclick="openPresentation('super_health_training.pdf')" class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 hover:shadow-2xl border-t-8 border-t-sbiBlue transition-all group flex flex-col justify-center items-center text-center cursor-pointer transform hover:-translate-y-2">
                     <div class="w-20 h-20 bg-blue-50 text-sbiBlue rounded-full flex items-center justify-center text-4xl mb-6 group-hover:bg-sbiBlue group-hover:text-white transition-colors">
                         <i class="fas fa-shield-alt"></i>
@@ -451,6 +455,15 @@
                     <h3 class="text-2xl font-bold text-sbiDark mb-2">Super Top-Up</h3>
                     <p class="text-sm text-gray-500 mb-6 flex-grow">Enhancement plan reference materials.</p>
                     <span class="text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-play-circle"></i> View Deck</span>
+                </div>
+
+                <div onclick="openPresentation('opportunity_presentation.pdf')" class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 hover:shadow-2xl border-t-8 border-t-green-500 transition-all group flex flex-col justify-center items-center text-center cursor-pointer transform hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6 group-hover:bg-green-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-sbiDark mb-2">Opportunity</h3>
+                    <p class="text-sm text-gray-500 mb-6 flex-grow">Business growth and advisor opportunity presentation.</p>
+                    <span class="text-green-600 font-bold flex items-center gap-2"><i class="fas fa-play-circle"></i> View Deck</span>
                 </div>
             </div>
         </div>
@@ -517,6 +530,18 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // ==========================================
+        // INITIALIZATION & GLOBAL HELPERS
+        // ==========================================
+        
+        // Ensure page scrolls to top on refresh
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('load', function() {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        });
+
         // AOS initialization
         AOS.init({ duration: 800, once: true, offset: 100 });
 
@@ -577,9 +602,13 @@
         function hideAllViews() {
             document.getElementById('homeView').classList.add('hidden');
             document.getElementById('quotePageView').classList.add('hidden');
+            document.getElementById('calculatorView').classList.add('hidden'); // New Calculator Container
             document.getElementById('downloadsPageView').classList.add('hidden');
             document.getElementById('downloadsListView').classList.add('hidden');
             document.getElementById('trainingPageView').classList.add('hidden');
+            
+            // Clear iframe src so it doesn't stay running in background
+            document.getElementById('calcFrame').src = '';
         }
 
         function showHomeView() { 
@@ -606,6 +635,20 @@
             window.scrollTo({ top: 0, behavior: 'smooth' }); 
         }
 
+        // ==========================================
+        // NEW: APP FRAME LOADER 
+        // ==========================================
+        function openCalculator(url) {
+            hideAllViews();
+            document.getElementById('calcLoader').classList.remove('hidden'); // Reset loader animation
+            document.getElementById('calculatorView').classList.remove('hidden'); // Show container
+            document.getElementById('calcFrame').src = url; // Inject external HTML file
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ==========================================
+        // DOWNLOADS & SHARE LOGIC
+        // ==========================================
         function openDownloadCategory(catName, catSlug) {
             hideAllViews();
             document.getElementById('downloadsListView').classList.remove('hidden');
